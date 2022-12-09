@@ -1,71 +1,137 @@
-/* http://meyerweb.com/eric/tools/css/reset/ v2.0 | 20110126 */
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@400;700&family=Oswald:wght@200&family=Raleway:wght@300;400&display=swap');
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font: inherit;
-	font-size: 100%;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
+    min-height: 100vh;
+    font-family: Lato, Helvetica, sans-serif;
+    background: #e0e0e0;
+    padding: clamp(20px, 5vw, 50px) 10px 10px; /*responsive avec valeur min et max sur le extremités du clamp() */
+    color: #707070
 }
 
-blockquote::before, blockquote::after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
+.container {
+    /* max-width : 850px;
+    margin: 0 auto; */ 
+
+    width: min(100% - 15px, 840px);
+    margin-inline: auto;
+
+    padding: 25px;
+    border-radius: 50px;
+    background: #e0e0e0;
+    box-shadow:  39px 39px 77px #bebebe,
+                 -39px -39px 77px #ffffff;
 }
 
-/* Reset perso */
-a, del, ins {
-  text-decoration: none;
-}
-a {	
-  color: inherit;
-}
-
-label, button {
-  cursor: pointer;
+.container__title {
+    font-family: Raleway, sans-sérif;
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 400;
 }
 
-html {
-  box-sizing: border-box
+.container__title--bold {
+    font-weight: 700; 
 }
 
-*, *::before, *::after {
-  box-sizing: inherit
+.container__input {
+    display: flex; 
+    justify-content: center;
 }
 
-input, button {
-  outline: 0;
+.input__group label {
+    display: block;
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+
+.input__group input {
+    min-width: 350px; 
+    font-size: 0.7rem;
+    padding: 15px;
+    border: none; 
+    border-radius: 16px;
+    background: #e0e0e0;
+    box-shadow: inset 7px 7px 31px #c1c1c1,
+                inset -7px -7px 31px #ffffff;
+}
+
+.input__group input:focus {
+    outline: 1px solid #222222be; 
+}
+
+.input__group:nth-child(2) { /* nth-child = cible le "numéro de l'enfant" n°2 */
+    margin-left: 20px; 
+}
+
+form button {
+    font-size: 20px;
+    min-width: 200px;
+    margin: 40px auto;
+    display: block;
+    padding: 10px; 
+    border: none;
+    font-weight: 700;
+    color: #707070;
+    cursor: pointer;
+    border-radius: 14px;
+    background: linear-gradient(145deg, #f0f0f0, #cacaca);
+    box-shadow:  10px 10px 35px #bebebe,
+                 -10px -10px 35px #ffffff;
+
+}
+
+form button:hover {
+    background: #f2b527;
+}
+
+.info {
+    text-align: center;
+    
+}
+
+.bmi-value {
+    font-size: 45px;
+    margin-bottom: 5px;
+    font-weight: bolder; 
+}
+
+.result {
+    font-family: Raleway, sans sérif;
+    font-size: 20px;
+}
+
+@media (max-width: 800px) {
+    .container {
+        max-width: 600px;
+    }
+
+    .container__input {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .input__group:nth-child(2) {
+        margin-top: 30px;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .input__group {
+        width: 100%;
+    }
+
+    .input__group input {
+        width: 100%;
+        min-width: auto; 
+    }
 }
